@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Built-By: rajit shahi
+Class-Path: lib/org.ektorp-1.3.0.jar lib/jackson-core-asl-1.9.7.jar li
+ b/jackson-mapper-asl-1.9.7.jar lib/commons-io-2.0.1.jar lib/httpclien
+ t-4.2.jar lib/httpcore-4.2.jar lib/commons-logging-1.1.1.jar lib/comm
+ ons-codec-1.6.jar lib/json-lib-2.4-jdk15.jar lib/commons-beanutils-1.
+ 8.0.jar lib/commons-collections-3.2.1.jar lib/commons-lang-2.5.jar li
+ b/ezmorph-1.0.6.jar lib/slf4j-api-1.7.5.jar lib/slf4j-log4j12-1.7.5.j
+ ar lib/log4j-1.2.17.jar
+Build-Jdk: 1.8.0_121
+Created-By: Maven Integration for Eclipse
+Main-Class: filesystemscanner.sample.client.main.SampleClient
+

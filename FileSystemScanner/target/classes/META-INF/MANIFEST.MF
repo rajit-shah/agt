@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: Text Files Scanner Service
+Implementation-Version: 1.0-SNAPSHOT
+Built-By: rajit shahi
+Implementation-Vendor-Id: org.rajit.devtaskforagt
+Build-Jdk: 1.8.0_121
+Implementation-URL: http://projects.spring.io/spring-boot/filesystemsc
+ anner/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
