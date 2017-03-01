@@ -47,28 +47,44 @@ public class TextFileInfo
 
 	/**
 	 * 
-	 * @return List of repeating words 
+	 * @return List of repeating words
 	 */
 	public ArrayList<RepeatingWords> getRepeatingWords()
 	{
 		return repeatingWords;
 	}
 
+	/**
+	 * set name of the directory
+	 * @param directory
+	 */
 	public void setDirectory(String directory)
 	{
 		this.directory = directory;
 	}
 
+	/**
+	 * set name of a file
+	 * @param filename
+	 */
 	public void setFilename(String filename)
 	{
 		this.filename = filename;
 	}
 
+	/**
+	 * set total number of words counted
+	 * @param wordCount
+	 */
 	public void setWordCount(int wordCount)
 	{
 		this.wordCount = wordCount;
 	}
 
+	/**
+	 * set array list of repeating words
+	 * @param repeatingWords
+	 */
 	public void setRepeatingWords(ArrayList<RepeatingWords> repeatingWords)
 	{
 		this.repeatingWords = repeatingWords;

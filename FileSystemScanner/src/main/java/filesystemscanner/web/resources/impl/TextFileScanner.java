@@ -47,9 +47,12 @@ public class TextFileScanner
 	public Optional<TextFileInfo> scan(final File file)
 	{
 		try {
+			// read the contents of the file and split the content into valid words using
+			// StringTokenizer
 			String content = new String(Files.readAllBytes(Paths.get(file.toURI())), CHARSET);
 			content = content.replaceAll("\\P{Print}", "");
 			StringTokenizer st = new StringTokenizer(content, DELIMETER);
+			// list of words contained in the file
 			ArrayList<String> words = new ArrayList<String>();
 			while (st.hasMoreElements()) {
 				words.add(st.nextToken());
@@ -60,6 +63,9 @@ public class TextFileScanner
 			fileInfo.setDirectory(file.getParent());
 			fileInfo.setWordCount(words.size());
 			if (words.size() > this.scanRequirement.getMaxWordCount()) {
+				// find the duplicate words as unique collection and check each word for its frequency
+				// in words list
+				// we need to iterate over the list to find the duplicates
 				Set<String> duplicates = this.scanForDuplicates(words);
 				for (String duplicate : duplicates) {
 					int frequency = Collections.frequency(words, duplicate);

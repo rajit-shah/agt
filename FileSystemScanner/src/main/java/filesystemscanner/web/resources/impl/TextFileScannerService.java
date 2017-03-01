@@ -14,10 +14,10 @@ import filesystemscanner.web.resources.IScannerService;
 /**
  * Implementation of {@link IScannerService} which scans the file system for files of extension
  * <b>TXT</b>. It scans provided path with TXT file format. Further based upon
- * {@link TextFileScanRequirements}, it counts number of words and if number of words are larger than the
- * property <code> ScanRequirements.getMaxWordCount()</code> then it scans for the frequent word
- * occurrences and includes them as a part of a result if the occurrences are found to be greater
- * than <code> ScanRequirements.getRepeatingWordFrequency()</code> property.
+ * {@link TextFileScanRequirements}, it counts number of words and if number of words are larger
+ * than the property <code> ScanRequirements.getMaxWordCount()</code> then it scans for the frequent
+ * word occurrences and includes them as a part of a result if the occurrences are found to be
+ * greater than <code> ScanRequirements.getRepeatingWordFrequency()</code> property.
  * @author rajit shahi
  *
  */
@@ -42,31 +42,43 @@ public class TextFileScannerService implements IScannerService
 	{
 		File file = new File(path);
 		if (file.exists()) {
-			Optional<TextFileScanResult> optional = this.read(file, f -> {
-				if (f.isDirectory()) {
-					return true;
-				} else if (f.isFile()) {
-					String name = f.getName();
-					int pos = name.lastIndexOf('.');
-					String ext = name.substring(pos + 1);
-					return ext.equals(FILE_EXTENSION);
+			if (file.isDirectory()) {
+				// recursively search for the text file and scan each file and build results as files are
+				// found
+				Optional<TextFileScanResult> optional = this.read(file, f -> {
+					if (f.isDirectory()) {
+						return true;
+					} else if (f.isFile()) {
+						String name = f.getName();
+						int pos = name.lastIndexOf('.');
+						String ext = name.substring(pos + 1);
+						return ext.equals(FILE_EXTENSION);
+					} else {
+						return false;
+					}
+				});
+
+				if (optional.isPresent()) {
+					return optional.get();
 				} else {
-					return false;
+					throw new ScannerServiceException("Nothing is found in path " + path + ".");
 				}
-			});
-
-			if (optional.isPresent()) {
-				return optional.get();
 			} else {
-				throw new ScannerServiceException("Nothing is found in path " + path + ".");
+				throw new ScannerServiceException(
+						"The given path is that of a file. Please supply the path to the Directory.");
 			}
-
 		} else {
 			throw new ScannerServiceException("The given path " + path + " could not be located.");
 		}
 	}
 
-	public Optional<TextFileScanResult> read(final File path, final FileFilter filter)
+	/**
+	 * scans the directory recursively for the text file
+	 * @param path
+	 * @param filter
+	 * @return
+	 */
+	private Optional<TextFileScanResult> read(final File path, final FileFilter filter)
 	{
 		File[] listOfFiles = path.listFiles(filter);
 		if (listOfFiles == null) {
