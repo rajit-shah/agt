@@ -32,7 +32,7 @@ public class SampleClient
 		StdHttpClient.Builder builder = new StdHttpClient.Builder().host("localhost").port(8080).caching(false);
 		HttpClient client = builder.build();
 		try {
-			HttpResponse httpResponse = client.get("/scan?path=" + path);
+			HttpResponse httpResponse = client.get("/scan-service/scan?path=" + path);
 			if (httpResponse.isSuccessful()) {
 				try {
 					JSONObject json = om.readValue(httpResponse.getContent(), JSONObject.class);
@@ -56,7 +56,7 @@ public class SampleClient
 			} else {
 				JSONObject json = om.readValue(httpResponse.getContent(), JSONObject.class);
 				System.out.println("There was problem calling the service. The server responded with HTTP status code: "
-						+ httpResponse.getCode() +" and message "+ json.toString());
+						+ httpResponse.getCode() + " and message " + json.toString());
 			}
 		} catch (Exception e) {
 			System.out.println("There was problem calling the service. Error:  " + e.getMessage());
