@@ -11,6 +11,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -28,6 +29,8 @@ public class TextFileScanner
 {
 
 	private TextFileScanRequirements scanRequirement;
+
+	private static final Logger logger = Logger.getLogger(TextFileScanner.class);
 
 	@Autowired
 	public TextFileScanner(TextFileScanRequirements scanRequirement)
@@ -76,6 +79,7 @@ public class TextFileScanner
 			}
 			return Optional.of(fileInfo);
 		} catch (IOException e) {
+			logger.error("error reading file: " + file.getPath(), e);
 			return Optional.empty();
 		}
 	}

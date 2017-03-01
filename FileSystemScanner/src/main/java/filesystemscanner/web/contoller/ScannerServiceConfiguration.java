@@ -1,5 +1,6 @@
 package filesystemscanner.web.contoller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -28,10 +29,14 @@ public class ScannerServiceConfiguration
 	@Autowired
 	TextFileScanner textFileScanner;
 
+	private static final Logger logger = Logger.getLogger(ScannerServiceConfiguration.class);
+
 	@Bean
 	@ConditionalOnProperty(name = "scanner.name", havingValue = "txt", matchIfMissing = true)
 	public IScannerService txtScannerService()
 	{
+		logger.info("returing an instance of " + TextFileScannerService.class.getName() + " for the interface "
+				+ IScannerService.class.getName());
 		return new TextFileScannerService(textFileScanner, scanRequirements);
 	}
 
