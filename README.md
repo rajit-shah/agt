@@ -9,7 +9,7 @@
 	The build version are available inside build folder.
 
 	Follow below instructions to run the service:
-
+	 - download file-scanner-service.jar file
 	 - open shell (in linux) or Command (in windows). Browse to the location where the jar file is located
 	 - run java -jar file-scanner-service.jar	
 	 
@@ -28,8 +28,7 @@
 	 
 	 
 	 Follow below instructions to run the sample client:
-	 
-	 - unzip the compressed .zip file 
+	 - download sample-client-bin.zip file and unzip it  
 	 - open shell (in linux) or Command (in windows) and browse into the unzipped location 
 	 - locate sample-client.jar or sample-client.bat file
 	 - run java -jar file-scanner-service.jar {path} or sample-client.bat {path} to run the client
