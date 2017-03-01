@@ -17,6 +17,12 @@ import org.springframework.stereotype.Component;
 import filesystemscanner.web.beans.RepeatingWords;
 import filesystemscanner.web.beans.TextFileInfo;
 
+/**
+ * Class to scan a text file and return info as per the criteria defined in
+ * {@link TextFileScanRequirements}
+ * @author rajit shahi
+ *
+ */
 @Component
 public class TextFileScanner
 {
@@ -33,6 +39,11 @@ public class TextFileScanner
 
 	private static final String DELIMETER = "-;:'` ,.[)]=(/*#?%$§+~<>°^–\t\r\n\"1234567890£";
 
+	/**
+	 * 
+	 * @param file text file to scan
+	 * @return info on file as total number of words, repeating words etc..
+	 */
 	public Optional<TextFileInfo> scan(final File file)
 	{
 		try {
@@ -63,6 +74,12 @@ public class TextFileScanner
 		}
 	}
 
+	/**
+	 * scan an array list for duplicates and is decided by the property
+	 * <code>TextFileScanRequirements.getRepeatingWordFrequency()</code> property
+	 * @param words arraylist to be scanned for duplicates
+	 * @return unique collection of duplicates
+	 */
 	private Set<String> scanForDuplicates(final ArrayList<String> words)
 	{
 		final Set<String> duplicates = new HashSet<String>();
