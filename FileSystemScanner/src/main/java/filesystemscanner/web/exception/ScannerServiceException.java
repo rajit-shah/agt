@@ -1,6 +1,7 @@
 package filesystemscanner.web.exception;
 
 /**
+ * Generic exception to be thrown during problem in fulfilling the service request
  * @author rajit shahi
  *
  */

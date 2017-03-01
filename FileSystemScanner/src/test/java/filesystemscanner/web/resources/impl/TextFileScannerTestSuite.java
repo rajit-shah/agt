@@ -12,22 +12,22 @@ import filesystemscanner.web.beans.TextFileInfo;
 import filesystemscanner.web.contoller.ServiceContoller;
 
 /**
+ * Test case for {@link TextFileScanner} class
  * @author rajit shahi
  *
  */
 public class TextFileScannerTestSuite
 {
-
 	private TextFileScanner scanner;
 
-	private ScanRequirements scanRequirements;
+	private TextFileScanRequirements scanRequirements;
 
 	private File sampleTestFile;
 
 	@Before
 	public void setup() throws Exception
 	{
-		scanRequirements = new ScanRequirements();
+		scanRequirements = new TextFileScanRequirements();
 		scanRequirements.setMaxWordCount(10);
 		scanRequirements.setRepeatingWordFrequency(2);
 		this.scanner = new TextFileScanner(scanRequirements);

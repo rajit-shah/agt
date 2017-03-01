@@ -19,10 +19,15 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import filesystemscanner.web.contoller.ScannerServiceExceptionHandler;
 import filesystemscanner.web.contoller.ServiceContoller;
-import filesystemscanner.web.resources.impl.ScanRequirements;
+import filesystemscanner.web.resources.impl.TextFileScanRequirements;
 import filesystemscanner.web.resources.impl.TextFileScanner;
 import filesystemscanner.web.resources.impl.TextFileScannerService;
 
+/**
+ * Test case for {@link ServiceContoller} class
+ * @author rajit shahi
+ *
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
 @WebAppConfiguration
@@ -80,7 +85,7 @@ public class ServiceContollerUnitTest
 
 	private ServiceContoller getController()
 	{
-		ScanRequirements scanRequirements = new ScanRequirements();
+		TextFileScanRequirements scanRequirements = new TextFileScanRequirements();
 		scanRequirements.setMaxWordCount(1000);
 		scanRequirements.setRepeatingWordFrequency(50);
 		return new ServiceContoller(new TextFileScannerService(new TextFileScanner(scanRequirements), scanRequirements));

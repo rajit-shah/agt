@@ -21,10 +21,10 @@ import filesystemscanner.web.beans.TextFileInfo;
 public class TextFileScanner
 {
 
-	private ScanRequirements scanRequirement;
+	private TextFileScanRequirements scanRequirement;
 
 	@Autowired
-	public TextFileScanner(ScanRequirements scanRequirement)
+	public TextFileScanner(TextFileScanRequirements scanRequirement)
 	{
 		this.scanRequirement = scanRequirement;
 	}

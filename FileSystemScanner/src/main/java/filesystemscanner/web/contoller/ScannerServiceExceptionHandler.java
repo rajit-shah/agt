@@ -13,6 +13,9 @@ import filesystemscanner.web.beans.Message;
 import filesystemscanner.web.exception.ScannerServiceException;
 
 /**
+ * Generic exception handler class for Exception of type {@link ScannerServiceException}. All
+ * exceptions are sent to client as a response with response status 403 with exception message as a
+ * {@link Message} bean
  * @author rajit shahi
  *
  */

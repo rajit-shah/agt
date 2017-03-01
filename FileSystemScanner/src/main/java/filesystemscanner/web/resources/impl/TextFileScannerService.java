@@ -14,7 +14,7 @@ import filesystemscanner.web.resources.IScannerService;
 /**
  * Implementation of {@link IScannerService} which scans the file system for files of extension
  * <b>TXT</b>. It scans provided path with TXT file format. Further based upon
- * {@link ScanRequirements}, it counts number of words and if number of words are larger than the
+ * {@link TextFileScanRequirements}, it counts number of words and if number of words are larger than the
  * property <code> ScanRequirements.getMaxWordCount()</code> then it scans for the frequent word
  * occurrences and includes them as a part of a result if the occurrences are found to be greater
  * than <code> ScanRequirements.getRepeatingWordFrequency()</code> property.
@@ -28,10 +28,10 @@ public class TextFileScannerService implements IScannerService
 
 	private TextFileScanner textFileScanner;
 
-	private ScanRequirements scanRequirements;
+	private TextFileScanRequirements scanRequirements;
 
 	@Autowired
-	public TextFileScannerService(TextFileScanner textFileScanner, ScanRequirements scanRequirements)
+	public TextFileScannerService(TextFileScanner textFileScanner, TextFileScanRequirements scanRequirements)
 	{
 		this.textFileScanner = textFileScanner;
 		this.scanRequirements = scanRequirements;

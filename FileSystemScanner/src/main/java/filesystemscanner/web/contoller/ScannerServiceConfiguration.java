@@ -9,11 +9,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 import filesystemscanner.web.resources.IScannerService;
-import filesystemscanner.web.resources.impl.ScanRequirements;
+import filesystemscanner.web.resources.impl.TextFileScanRequirements;
 import filesystemscanner.web.resources.impl.TextFileScanner;
 import filesystemscanner.web.resources.impl.TextFileScannerService;
 
 /**
+ * Configuration class for providing an instance of {@link IScannerService}
  * @author rajit shahi
  *
  */
@@ -22,7 +23,7 @@ public class ScannerServiceConfiguration
 {
 
 	@Autowired
-	ScanRequirements scanRequirements;
+	TextFileScanRequirements scanRequirements;
 
 	@Autowired
 	TextFileScanner textFileScanner;
