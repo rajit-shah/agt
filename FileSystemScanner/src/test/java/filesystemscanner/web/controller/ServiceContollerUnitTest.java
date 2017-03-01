@@ -24,7 +24,7 @@ import filesystemscanner.web.resources.impl.TextFileScanner;
 import filesystemscanner.web.resources.impl.TextFileScannerService;
 
 /**
- * Test case for {@link ServiceContoller} class
+ * Test case for {@link ServiceContoller} class with {@link TextFileScannerService}
  * @author rajit shahi
  *
  */
