@@ -1,8 +1,9 @@
 package filesystemscanner.web.beans;
 
 /**
- * Class to represent the result of the text file scan. It contains two detailed {@link Directory}
- * information, one of all files containing large words and of other containing lesser words
+ * Class to represent the result of the text file scan in a tree structure. It contains two detailed
+ * {@link Directory} information, one of all files containing large words and of other containing
+ * lesser words
  * @author rajit shahi
  *
  */

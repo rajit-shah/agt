@@ -43,8 +43,8 @@ public class TextFileScannerService implements IScannerService
 		File file = new File(path);
 		if (file.exists()) {
 			if (file.isDirectory()) {
-				// recursively search for the text file and scan each file and build results as files are
-				// found
+				// recursively search for the text file and scan each file and build results as files
+				// are found
 				Optional<TextFileScanResult> optional = this.read(file, f -> {
 					if (f.isDirectory()) {
 						return true;
@@ -73,7 +73,8 @@ public class TextFileScannerService implements IScannerService
 	}
 
 	/**
-	 * scans the directory recursively for the text file
+	 * scans the directory recursively for the text file. The files are scanned for repeated words
+	 * and results are prepared as they are found.
 	 * @param path
 	 * @param filter
 	 * @return
@@ -104,8 +105,10 @@ public class TextFileScannerService implements IScannerService
 					}
 				}
 			} else if (currentFile.isDirectory()) {
+				// scan sub-directory
 				Optional<TextFileScanResult> read = this.read(currentFile, filter);
 				if (read.isPresent()) {
+					// the scan result gives already its result for long files and short files
 					TextFileScanResult scan = read.get();
 					scanResult.getLongFiles().setDirectory(scan.getLongFiles());
 					scanResult.getShortFiles().setDirectory(scan.getShortFiles());
@@ -115,5 +118,4 @@ public class TextFileScannerService implements IScannerService
 		}
 		return Optional.of(scanResult);
 	}
-
 }
