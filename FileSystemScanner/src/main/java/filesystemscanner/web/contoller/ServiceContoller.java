@@ -18,8 +18,13 @@ import filesystemscanner.web.resources.IScannerService;
 @EnableAutoConfiguration
 public class ServiceContoller
 {
+	private final IScannerService service;
+
 	@Autowired
-	IScannerService service;
+	public ServiceContoller(final IScannerService service)
+	{
+		this.service = service;
+	}
 
 	@RequestMapping(value = "/scan", method = RequestMethod.GET)
 	Object scan(@RequestParam(value = "path", defaultValue = "") String path)

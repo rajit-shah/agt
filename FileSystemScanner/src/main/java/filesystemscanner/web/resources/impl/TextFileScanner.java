@@ -21,8 +21,13 @@ import filesystemscanner.web.beans.TextFileInfo;
 public class TextFileScanner
 {
 
-	@Autowired
 	private ScanRequirements scanRequirement;
+
+	@Autowired
+	public TextFileScanner(ScanRequirements scanRequirement)
+	{
+		this.scanRequirement = scanRequirement;
+	}
 
 	private static final String CHARSET = "ISO-8859-1";
 

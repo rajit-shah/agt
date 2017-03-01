@@ -16,8 +16,8 @@ import filesystemscanner.web.resources.IScannerService;
  * <b>TXT</b>. It scans provided path with TXT file format. Further based upon
  * {@link ScanRequirements}, it counts number of words and if number of words are larger than the
  * property <code> ScanRequirements.getMaxWordCount()</code> then it scans for the frequent word
- * occurrences and includes them as a part of a result if the occurrences are found to be greater than
- * <code> ScanRequirements.getRepeatingWordFrequency()</code> property.
+ * occurrences and includes them as a part of a result if the occurrences are found to be greater
+ * than <code> ScanRequirements.getRepeatingWordFrequency()</code> property.
  * @author rajit shahi
  *
  */
@@ -26,11 +26,16 @@ public class TextFileScannerService implements IScannerService
 
 	private static final String FILE_EXTENSION = "txt";
 
-	@Autowired
 	private TextFileScanner textFileScanner;
 
-	@Autowired
 	private ScanRequirements scanRequirements;
+
+	@Autowired
+	public TextFileScannerService(TextFileScanner textFileScanner, ScanRequirements scanRequirements)
+	{
+		this.textFileScanner = textFileScanner;
+		this.scanRequirements = scanRequirements;
+	}
 
 	@Override
 	public Object scan(String path)
@@ -63,7 +68,6 @@ public class TextFileScannerService implements IScannerService
 
 	public Optional<TextFileScanResult> read(final File path, final FileFilter filter)
 	{
-
 		File[] listOfFiles = path.listFiles(filter);
 		if (listOfFiles == null) {
 			return Optional.empty();
