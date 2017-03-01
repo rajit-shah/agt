@@ -77,6 +77,12 @@ public class ServiceContollerUnitTest
 	}
 
 	@Test
+	public void testWrongServiceURL() throws Exception
+	{
+		mockMvc.perform(get("/scann?path=D:/lova").accept(MediaType.APPLICATION_JSON)).andExpect(status().isNotFound());
+	}
+
+	@Test
 	public void testScanResult() throws Exception
 	{
 		mockMvc.perform(get("/scan?path=" + this.sampleTestFile.getPath() + "/").accept(MediaType.APPLICATION_JSON))
