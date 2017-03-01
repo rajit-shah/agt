@@ -28,8 +28,8 @@
 	 
 	 
 	 Follow below instructions to run the sample client:
-	 - download sample-client-bin.zip file and unzip it  
-	 - open shell (in linux) or Command (in windows) and browse into the unzipped location 
-	 - locate sample-client.jar or sample-client.bat file
-	 - run java -jar file-scanner-service.jar {path} or sample-client.bat {path} to run the client
+	  - download sample-client-bin.zip file and unzip it  
+	  - open shell (in linux) or Command (in windows) and browse into the unzipped location 
+	  - locate sample-client.jar or sample-client.bat file
+	  - run java -jar file-scanner-service.jar {path} or sample-client.bat {path} to run the client
 	 	
