@@ -9,7 +9,6 @@ package filesystemscanner.web.resources;
  * @author rajit shahi
  *
  */
-@FunctionalInterface
 public interface IScannerService
 {
 	/**

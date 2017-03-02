@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import filesystemscanner.web.beans.Message;
 import filesystemscanner.web.resources.IScannerService;
 import filesystemscanner.web.resources.impl.TextFileScanRequirements;
 import filesystemscanner.web.resources.impl.TextFileScanner;
@@ -38,6 +39,25 @@ public class ScannerServiceConfiguration
 		logger.info("returing an instance of " + TextFileScannerService.class.getName() + " for the interface "
 				+ IScannerService.class.getName());
 		return new TextFileScannerService(textFileScanner, scanRequirements);
+	}
+
+	/**
+	 * Only for demonstration
+	 * @return dummy implementation of {@link IScannerService}
+	 */
+	@Bean
+	@ConditionalOnProperty(name = "scanner.name", havingValue = "dummy")
+	public IScannerService dummyScannerService()
+	{
+		logger.info("returing an instance of " + TextFileScannerService.class.getName() + " for the interface "
+				+ IScannerService.class.getName());
+		return new IScannerService() {
+			@Override
+			public Object scan(String path)
+			{
+				return new Message("Dummy Service implementation for scanning : " + path);
+			}
+		};
 	}
 
 	@Bean
