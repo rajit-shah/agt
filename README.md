@@ -6,12 +6,12 @@
 	2. FSSSampleClient is the client that consumes FileSystmScanner service running in local machine at port 8080. 
 	   It takes only full path to the directory as the parameter.
 	
-	The build version are available inside build folder.
+	The build version are available inside builds folder.
 
 	Follow below instructions to run the service:
 	 - download file-scanner-service.jar file
-	 - open shell (in linux) or Command (in windows). Browse to the location where the jar file is located
-	 - run java -jar file-scanner-service.jar	
+	 - open shell (in linux) or Command (in windows). Locate file-scanner-service.jar file
+	 - run: java -jar file-scanner-service.jar	
 	 
 	By default, the application scans all text file. Further it is configured to scan files as large files containing more than 
 	 - 1000 words
@@ -30,5 +30,5 @@
 	 - download sample-client-bin.zip file and unzip it  
 	 - open shell (in linux) or Command (in windows) and browse into the unzipped location 
 	 - locate sample-client.jar or sample-client.bat file
-	 - run java -jar file-scanner-service.jar {path} or sample-client.bat {path} to run the client
+	 - run: java -jar sample-client.jar {path} or sample-client.bat {path} to run the client
 	 	
