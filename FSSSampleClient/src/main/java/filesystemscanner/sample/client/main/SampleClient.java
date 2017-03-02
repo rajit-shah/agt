@@ -36,20 +36,24 @@ public class SampleClient
 			if (httpResponse.isSuccessful()) {
 				try {
 					JSONObject json = om.readValue(httpResponse.getContent(), JSONObject.class);
-					JSONObject longFiles = json.getJSONObject("longFiles");
-					System.out.println("**** LONG FILES ****");
-					System.out.println("<Directory " + longFiles.getString("name") + ">");
-					JSONArray fileInfos = longFiles.getJSONArray("fileInfo");
-					printFiles(fileInfos, 5);
-					printDirectory(longFiles, 5);
+					if (json.containsKey("longFiles") || json.containsKey("shortFiles")) {
+						JSONObject longFiles = json.getJSONObject("longFiles");
+						System.out.println("**** LONG FILES ****");
+						System.out.println("<Directory " + longFiles.getString("name") + ">");
+						JSONArray fileInfos = longFiles.getJSONArray("fileInfo");
+						printFiles(fileInfos, 5);
+						printDirectory(longFiles, 5);
 
-					JSONObject shortFiles = json.getJSONObject("shortFiles");
-					System.out.println("**** SHORT FILES ****");
-					System.out.println("<Directory " + shortFiles.getString("name") + ">");
-					directoryCountReset();
-					fileInfos = shortFiles.getJSONArray("fileInfo");
-					printFiles(fileInfos, 5);
-					printDirectory(shortFiles, 5);
+						JSONObject shortFiles = json.getJSONObject("shortFiles");
+						System.out.println("**** SHORT FILES ****");
+						System.out.println("<Directory " + shortFiles.getString("name") + ">");
+						directoryCountReset();
+						fileInfos = shortFiles.getJSONArray("fileInfo");
+						printFiles(fileInfos, 5);
+						printDirectory(shortFiles, 5);
+					} else {
+						System.out.println(json);
+					}
 				} catch (IOException e) {
 					System.out.println("Error Parsing the response from the service: " + httpResponse.getRequestURI());
 				}
