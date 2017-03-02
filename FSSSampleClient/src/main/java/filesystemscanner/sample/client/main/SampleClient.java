@@ -41,16 +41,16 @@ public class SampleClient
 						System.out.println("**** LONG FILES ****");
 						System.out.println("<Directory " + longFiles.getString("name") + ">");
 						JSONArray fileInfos = longFiles.getJSONArray("fileInfo");
-						printFiles(fileInfos, 5);
-						printDirectory(longFiles, 5);
+						this.printFiles(fileInfos, 5);
+						this.printDirectory(longFiles, 5);
 
 						JSONObject shortFiles = json.getJSONObject("shortFiles");
 						System.out.println("**** SHORT FILES ****");
 						System.out.println("<Directory " + shortFiles.getString("name") + ">");
-						directoryCountReset();
+						this.directoryCountReset();
 						fileInfos = shortFiles.getJSONArray("fileInfo");
-						printFiles(fileInfos, 5);
-						printDirectory(shortFiles, 5);
+						this.printFiles(fileInfos, 5);
+						this.printDirectory(shortFiles, 5);
 					} else {
 						System.out.println(json);
 					}
@@ -96,8 +96,8 @@ public class SampleClient
 			System.out.printf("%-" + tab + "s %5s %n", "",
 					"<sub-directory #" + directoryCountUp() + " " + directory.getString("name") + ">");
 			JSONArray fileInfos = directory.getJSONArray("fileInfo");
-			printFiles(fileInfos, tab * 2);
-			printDirectory(directory, tab);
+			this.printFiles(fileInfos, tab * 2);
+			this.printDirectory(directory, tab);
 		}
 	}
 
