@@ -21,3 +21,19 @@ Configuration:
 	 this can be configured by setting the environment variable and running the command as follows:
 	 
 	 - java -Dscan.repeatingWordFrequency=100 -Dscan.maxWordCount=2000 -jar file-scanner-service.jar
+
+Design Considerations:
+The Controller delegates to the instance of filesystemscanner.web.resources.IScannerService to handle filesystem  scan request. 
+The implementation class filesystemscanner.web.resources.impl.TextFileScannerService.TextFileScannerService is injected as a
+default implemenation for IScannerService. Should the different behaviour is required, a different implemenation class can be
+provided and defined in configuration class filesystemscanner.web.contoller.ScannerServiceConfiguration. The property of
+"scanner.name" can be then used to control the injection of different implementation class. The property can be specified 
+as environment variable SCANNER_NAME. Should the property is not passed, the system assumes "txt" as default value and 
+thus injecting an instance of filesystemscanner.web.resources.impl.TextFileScannerService.TextFileScannerService.
+The property can be passed as:
+	java -DSCANNER_NAME=txt -jar file-scanner-service.jar
+
+The criteria for assuming large files and threshold value for repeating words can also be configured. This allows scanning 
+feature to provide different results based upon different criteria. The bean defining these criterias are represented as
+filesystemscanner.web.resources.impl.TextFileScanRequirements class with object attributes maxWordCount and repeatingWordFrequency.
+The default values are 1000 and 50 consecutively. Different values can be supplied as enviroment variable as shown above.
