@@ -7,8 +7,8 @@ How to start the application:
  
 The service runs with the context name: /scan-service
 
-It can be accessed by: curl http://localhost:8080/scan-service
-To scan the a directory for a txt files: curl http://localhost:8080/scan-service/scan?path=C:/TestData
+It can be accessed by: curl http://{host}:8080/scan-service
+To scan the a directory for a txt files: curl http://{host}:8080/scan-service/scan?path=C:/TestData
 
 Requirements to run: 
  - JRE-8 installed and JAVA_HOME must point to where the JRE is installed
