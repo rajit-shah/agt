@@ -5,11 +5,16 @@ How to start the application:
  - open shell (in linux) or Command (in windows). Browse to the location where the jar file is located
  - run java -jar file-scanner-service.jar
  
+The service runs with the context name: /scan-service
+
+It can be accessed by: curl http://localhost:8080/scan-service
+To scan the a directory for a txt files: curl http://localhost:8080/scan-service/scan?path=C:/TestData
+
 Requirements to run: 
  - JRE-8 installed and JAVA_HOME must point to where the JRE is installed
  
 Configuration:
- By default, the application scans all text file. Further it is configured to scan files as large files containing more than 
+By default, the application scans all text file. Further it is configured to scan files as large files containing more than 
 	- 1000 words
 	- and count words which repeat more than 50 times
 	
