@@ -13,6 +13,11 @@
 	 - open shell (in linux) or Command (in windows). Locate file-scanner-service.jar file
 	 - run: java -jar file-scanner-service.jar	
 	 
+	The service runs with the context name: /scan-service
+
+	It can be accessed by: curl http://{host}:8080/scan-service
+	To scan the a directory for a txt files: curl http://{host}:8080/scan-service/scan?path=C:/TestData
+	
 	By default, the application scans all text file. Further it is configured to scan files as large files containing more than 
 	 - 1000 words
 	 - and count words which repeat more than 50 times
