@@ -4,9 +4,9 @@ How to start the application:
  - unzip the compressed .zip file 
  - open shell (in linux) or Command (in windows) and browse into the unzipped location
  - locate sample-client.jar or sample-client.bat file  
- - run java -jar file-scanner-service.jar {path} or sample-client.bat {path} to run the client
+ - run java -jar sample-client.jar {path} or sample-client.bat {path} to run the client
  
- Note: The client takes a directory path as an argument. The client, by default, tries to connect to the service running at localhost:8080.   
+Note: The client takes a directory path as an argument. The client, by default, tries to connect to the service running at localhost:8080.   
  
 
 Requirements to run: 
